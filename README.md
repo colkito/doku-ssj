@@ -33,17 +33,16 @@ pip install -r requirements.txt
 3. Asegurate de tener Ollama instalado y corriendo en tu máquina. Si no lo tenés, bajalo de [acá](https://ollama.com/).
 
 4. Configurá tu movida:
-   - El archivo `.env` en la raíz del proyecto ya viene con la justa, pero si te pinta cambiar algo, mandate:
 
-```sh
-OLLAMA_BASE_URL=http://localhost:11434
-OLLAMA_CHAT_MODEL=llama3:latest
-OLLAMA_EMBEDDING_MODEL=nomic-embed-text:latest
-CHROMA_PATH=./chroma_db
-CHROMA_COLLECTION_NAME=doku
-CHROMA_ANONYMIZED_TELEMETRY=False
-DATA_PATH=./data
-```
+   El archivo `.env` en la raíz del proyecto ya viene con la justa, pero si te pinta cambiar algo, dale:
+
+- `OLLAMA_BASE_URL`: La dirección donde Ollama está haciendo la magia. Por defecto: `http://localhost:11434`.
+- `OLLAMA_CHAT_MODEL`: El modelo que usa para chatear. Viene con `llama3:latest`, pero si tenés otro con más flow, mandate.
+- `OLLAMA_EMBEDDING_MODEL`: El que convierte las palabras en números. Arranca con `nomic-embed-text:latest`.
+- `CHROMA_PATH`: Donde guarda toda la data procesada. Por defecto: `./chroma_db`.
+- `CHROMA_COLLECTION_NAME`: El nombre de la colección en Chroma. Arranca como `doku`.
+- `CHROMA_ANONYMIZED_TELEMETRY`: Si querés mandar data anónima pa' mejorar Chroma. Viene en `False` porque acá no buchoneamos.
+- `DATA_PATH`: Donde tiras tus docs para que Doku los mastique. Arranca en `./data`.
 
 ## Cómo usarlo
 
