@@ -221,11 +221,13 @@ def main():
     initialize_models()
     index = create_or_load_index()
 
-    print("\n¡Doku está listo para romperla! Tirate un 'quit' cuando quieras cortar.")
+    print(
+        "\n¡Doku está listo para romperla! Tirate un 'chau' o 'quit' cuando quieras cortar."
+    )
 
     while True:
-        query = input("\nVos: ")
-        if query.lower() == "quit":
+        query = input("\nVos: ").strip().lower()
+        if query in ["chau", "quit"]:
             print("¡Nos vemos en la próxima, wacho!")
             break
 

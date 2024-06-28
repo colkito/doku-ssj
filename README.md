@@ -13,6 +13,7 @@ Doku-ssj es como ese pibe del barrio que se las sabe todas. Usando [LlamaIndex](
 - 🧠 Modelos locales con Ollama (porque acá no dependemos de nadie, ¿tá claro?)
 - 💾 Guardamos los embeddings con Chroma (más veloz que Messi esquivando rivales)
 - 🦙 LlamaIndex integrado (armando flows más enredados que los auriculares en tu bolsillo)
+- 📄 Soporte actual para PDF, HTML y Markdown (y vienen más en camino, ¡aguante!)
 
 ## Cómo bajártelo
 
@@ -20,28 +21,63 @@ Doku-ssj es como ese pibe del barrio que se las sabe todas. Usando [LlamaIndex](
 
 ```sh
 git clone https://github.com/colkito/doku-ssj.git
+cd doku-ssj
 ```
 
 2. Instalá todo, metele:
 
 ```sh
-cd doku-ssj
 pip install -r requirements.txt
 ```
 
-3. Configurá tu movida (más data próximamente, aguantá la ansiedad)
+3. Asegurate de tener Ollama instalado y corriendo en tu máquina. Si no lo tenés, bajalo de [acá](https://ollama.com/).
+
+4. Configurá tu movida:
+   - El archivo `.env` en la raíz del proyecto ya viene con la justa, pero si te pinta cambiar algo, mandate:
+
+```sh
+OLLAMA_BASE_URL=http://localhost:11434
+OLLAMA_CHAT_MODEL=llama3:latest
+OLLAMA_EMBEDDING_MODEL=nomic-embed-text:latest
+CHROMA_PATH=./chroma_db
+CHROMA_COLLECTION_NAME=doku
+CHROMA_ANONYMIZED_TELEMETRY=False
+DATA_PATH=./data
+```
 
 ## Cómo usarlo
 
 Es fácil, bro:
 
-1. Metele tus docs, todo lo que tengas
-2. Chateá con el bot como si fuera tu dealer de conocimiento
-3. Aprovechá la data y hacete el Gardel de los datos
+1. Metele tus docs en la carpeta `./data`. El bot lee archivos PDF, HTML y Markdown (próximamente más formatos, estate atento).
+
+2. Corré el bot:
+
+```sh
+python doku_cli.py
+```
+
+3. Chateá con el bot como si fuera tu dealer de conocimiento. Tirá tus preguntas y el bot te va a responder con la data de tus docs.
+
+4. Cuando te pinte cortar, tirate un 'chau' y listo. (Si sos más del palo old school, 'quit' también va)
+
+## Próximamente
+
+- 📚 Soporte para más tipos de archivos (doc, docx, txt, y lo que se te ocurra)
+- 🚀 Mejoras en la velocidad y precisión
+- 🎤 Personalización del flow de la respuesta
 
 ## Metele mano si te la bancás
 
 ¿Te pintó mejorar doku-ssj? Demostrá lo que sabés. Tirá un issue o mandá un pull request. Mientras no la cagues, todo piola. Acá respetamos a los que le meten ganas y código.
+
+## Solución de problemas
+
+Si algo no funca:
+
+1. Fijate que Ollama esté corriendo
+2. Chequeá que los modelos estén bajados (`llama3` y `nomic-embed-text` van de fábrica)
+3. Si seguís en el horno, abrí un issue y lo vemos juntos
 
 ## La gilada legal
 
